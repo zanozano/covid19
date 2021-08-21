@@ -3,3 +3,15 @@
         max-width: 800px !important;
     }
 }
+
+.nav-link {
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    transition: 0.7s ease-out;
+
+}
+
+.nav-link:hover {
+    border-top: 2px solid coral;
+    border-bottom: 2px solid coral;
+}
