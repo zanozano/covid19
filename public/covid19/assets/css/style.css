@@ -2,8 +2,7 @@
     .modal-dialog {
         max-width: 800px !important;
     }
-}
-{
+}.footer {
     height: 110px;
     background-color: black;
     color: white;
