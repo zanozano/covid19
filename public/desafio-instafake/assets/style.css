@@ -1,0 +1,40 @@
+body {
+    font-family: monospace;
+}
+
+#pictures {
+    margin-top: 20px;
+}
+
+.pictures_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pictures_author {
+    border: 1px solid rgb(114, 106, 106);
+    margin-bottom: 10px;
+}
+
+.pictures_img {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+img {
+    max-height: 600px;
+}
+
+footer {
+    position: fixed;
+    background-color: blue;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+
+#pictures_buttom {
+    margin-bottom: 100px;
+}
