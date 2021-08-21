@@ -12,6 +12,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">COVID-19</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
@@ -40,6 +41,21 @@
     <section id="section_graph" class="container pt-5">
         <div id="allCountryGraph" style="height: 370px; width: 100%;"></div>
 
+=======
+
+  <!--NAVBAR-->
+  <nav class="navleft">
+    <section class="container">
+      <ul>
+        <li>
+          <a href="#inicio">Home</a>
+        </li>
+        <li>
+          <button type="button" id="btnLogIn" class="btn btn-outline-primary" data-toggle="modal"
+            data-target="#logIn">Sign in</button>
+        </li>
+      </ul>
+>>>>>>> 9cc1690c5c3d95b1be40587ef60cb37871bc3d4a
     </section>
     <!-- Sección tabla de paises-->
     <section id="section_table" class="container pt-5">
@@ -63,6 +79,7 @@
                                     <input type="email" class="form-control" id="covid-mail"
                                         aria-describedby="emailHelp">
 
+<<<<<<< HEAD
                                 </div>
                                 <div class="form-group mt-2">
                                     <label for="exampleInputPassword1">Password</label>
@@ -82,6 +99,42 @@
                 </div>
             </div>
         </div>
+=======
+<!-- Agregado modal formulario - gráfico -->
+  <div id="toggle-form">
+    <div class="modal fade" id="logIn" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="logInToken" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content px-3 modal-form">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logInToken">Iniciar sesion</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="form-login">
+              <div class="form-group mt-2">
+                <label for="exampleInputEmail1">Correo</label>
+                <input type="email" class="form-control" id="covid-mail" aria-describedby="emailHelp">
+
+              </div>
+              <div class="form-group mt-2">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="covid-pass">
+              </div>
+
+              <button type="submit" class="btn btn-primary mt-3" id="btnSubmit" onclick="javascript: $('#close-button').click();">Submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close-button">Close</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+>>>>>>> 9cc1690c5c3d95b1be40587ef60cb37871bc3d4a
 
         <table class="table table-striped">
             <thead>
