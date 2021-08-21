@@ -1,0 +1,29 @@
+{
+  "name": "api-jwt-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "0.19.2",
+    "body-parser": "1.19.0",
+    "express": "4.17.1",
+    "jsonwebtoken": "8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.4"
+  },
+  "scripts": {
+    "watch": "nodemon index.js --port=3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zanozano/covid-19-hito.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zanozano/covid-19-hito/issues"
+  },
+  "homepage": "https://github.com/zanozano/covid-19-hito#readme",
+  "description": ""
+}
