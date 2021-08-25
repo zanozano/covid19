@@ -1,3 +1,4 @@
+//TOKEN ALMACENADO EN EL LOCAL STORAGE
 const token = localStorage.getItem('jwt-token')
 if (token) {
     document.getElementById("link-covid-chile").style.display = "block"
@@ -15,7 +16,7 @@ $("#link-cerrar-sesion").on("click", () => {
     location.reload();
 })
 
-
+//FUNCION SUBMIT
 $('#js-form').submit(async (event) => {
 
     event.preventDefault()
@@ -42,7 +43,7 @@ $('#js-form').submit(async (event) => {
     }
 
 })
-
+//POST DATA FORMULARIO
 const postData = async (email, password) => {
     try {
         const response = await fetch('http://localhost:3000/api/login', {

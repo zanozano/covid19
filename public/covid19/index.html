@@ -9,23 +9,11 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>COVID-19</title>
-    <style>
-        .footer {
-            height: 110px;
-            background-color: black;
-            color: white;
-            text-decoration: none;
 
-        }
-
-        .footer a {
-            color: white;
-            font-size: 1.1em;
-        }
-    </style>
 </head>
 
 <body>
+    <!--INICIO NAV-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">COVID-19</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
@@ -51,8 +39,9 @@
             </ul>
         </div>
     </nav>
-
-    <!-- Modal -->
+    <!--FIN NAV-->
+    
+    <!--INICIO MODAL POR PAIS-->
     <div class="modal fade" id="countryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -71,10 +60,9 @@
             </div>
         </div>
     </div>
+    <!--FIN MODAL POR PAIS-->
 
-
-    <!-- Modal inicio de sesión-->
-
+    <!--INICIO MODAL SESION-->
     <div class="modal fade" id="sesionModal" tabindex="-1" aria-labelledby="sesionModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -85,7 +73,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
+                    <!--FORMULARIO-->
                     <form id="js-form">
                         <div class="form-group">
                             <label>Email address</label>
@@ -104,15 +92,17 @@
             </div>
         </div>
     </div>
+    <!--INICIO MODAL SESION-->
+
+    <!--INICIO GRAFICO TODO LOS PAISES-->
     <section id="section_graph" class="container pt-5">
         <div id="allCountryGraph" style="height: 370px; width: 100%;"></div>
-
     </section>
+    <!--FIN GRAFICO TODO LOS PAISES-->
 
+    <!--INICIO TABLA TODO LOS PAISES-->
     <section id="section_table" class="container pt-5">
-
         <h2 class="my-5 text-center">Detalle por país</h2>
-
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -125,14 +115,14 @@
                     <th scope="col">Consultar</th>
                 </tr>
             </thead>
+            <!--AQUI SE RENDERIZA LAS ROWS-->
             <tbody id="bodyTable">
-
-
             </tbody>
         </table>
-
     </section>
+    <!--FIN TABLA TODO LOS PAISES-->
 
+    <!--INICIO ICONO SVG-->
     <div id="contenedor_covid">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
             <defs>
@@ -146,26 +136,27 @@
                 d="M46.5,19A1.49977,1.49977,0,0,0,45,20.5V22H40.87225a16.9,16.9,0,0,0-3.53-8.51367l2.92121-2.92139,1.17582.99561a1.49993,1.49993,0,1,0,2.12134-2.1211l-4.99991-5a1.4999,1.4999,0,0,0-2.12127,2.1211l.99565,1.17578-2.92139,2.92138A16.90205,16.90205,0,0,0,26,7.12793V3h1.5a1.5,1.5,0,0,0,0-3h-7a1.5,1.5,0,0,0,0,3H22V7.12793a16.90205,16.90205,0,0,0-8.51367,3.52978L10.56494,7.73633l.99565-1.17578a1.4999,1.4999,0,0,0-2.12127-2.1211l-4.88475,5a1.49993,1.49993,0,0,0,2.12133,2.1211l1.06067-.99561,2.92121,2.92139A16.9,16.9,0,0,0,7.12775,22H3V20.5a1.5,1.5,0,0,0-3,0v7a1.5,1.5,0,0,0,3,0V26H7.12775a16.9,16.9,0,0,0,3.53,8.51367L7.73657,37.43506l-1.17582-.99561a1.49993,1.49993,0,0,0-2.12134,2.1211l4.99991,5a1.4999,1.4999,0,1,0,2.12127-2.1211l-.99565-1.17578,2.92127-2.92138A16.902,16.902,0,0,0,22,40.87207V45H20.5a1.5,1.5,0,0,0,0,3h7a1.5,1.5,0,0,0,0-3H26V40.87207a16.902,16.902,0,0,0,8.51379-3.52978l2.92127,2.92138-.99565,1.17578a1.4999,1.4999,0,0,0,2.12127,2.1211l4.99991-5a1.49993,1.49993,0,1,0-2.12134-2.1211l-1.17582.99561-2.92121-2.92139A16.9,16.9,0,0,0,40.87225,26H45v1.5a1.5,1.5,0,0,0,3,0v-7A1.49977,1.49977,0,0,0,46.5,19Zm-28,1A3.5,3.5,0,1,1,22,16.5,3.49994,3.49994,0,0,1,18.5,20ZM30,33a2,2,0,1,1,2-2A2.00006,2.00006,0,0,1,30,33Z" />
         </svg>
     </div>
+    <!--FIN ICONO SVG-->
 
-    <!--FOOTER-->
+    <!--INICIO FOOTER-->
     <footer class="footer d-flex justify-content-center align-items-center">
         <a href="https://www.minsal.cl/">
             <p>Datos extraidos del Minsal</p>
         </a>
     </footer>
+    <!--INICIO FOOTER-->
 
-
-
+    <!--SCRIPT-->
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
         integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="./assets/js/hito1.js"></script>
     <script src="./assets/js/hito2.js"></script>
 </body>

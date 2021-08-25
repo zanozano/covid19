@@ -1,40 +1,49 @@
 @media (min-width: 576px) {
-    .modal-dialog {
-        max-width: 800px !important;
-    }
+  .modal-dialog {
+    max-width: 800px !important;
+  }
 }
 
 .nav-link {
-    border-top: 2px solid transparent;
-    border-bottom: 2px solid transparent;
-    transition: 0.7s ease-out;
-
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transition: 0.7s ease-out;
 }
 
 .nav-link:hover {
-    border-top: 2px solid coral;
-    border-bottom: 2px solid coral;
+  border-top: 2px solid coral;
+  border-bottom: 2px solid coral;
 }
 
 #contenedor_covid {
-    width: 100px;
-    position: absolute;
-    top: 60%;
-    left: 20px;
+  width: 100px;
+  position: absolute;
+  top: 60%;
+  left: 20px;
 }
 
 .covid-icon {
-    animation: 3s rotar infinite linear;
-    transform-origin: center;
+  animation: 3s rotar infinite linear;
+  transform-origin: center;
 }
 
-
 @keyframes rotar {
-    0% {
-        transform: rotate(0deg)
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg)
-    }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.footer {
+  height: 110px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}
+
+.footer a {
+  color: white;
+  font-size: 1.1em;
 }
