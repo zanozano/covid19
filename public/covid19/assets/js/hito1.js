@@ -1,65 +1,64 @@
+//GRAFICO SOBRE 100.000 MUERTOS A NIVEL MUNDIAL
 window.onload = function () {
-
     const cargaGrafico = (data) => {
+        let masCasos = data.filter((pais) => {
+            return pais.deaths > 100000;
+        });
 
-        let masCasos = data.filter(pais => {
-            return pais.deaths > 100000
-        })
+        let activos = new Array();
 
-        let activos = new Array;
-
-        masCasos.forEach(element => {
+        masCasos.forEach((element) => {
             activos.push({
-                "label": element.location,
-                "y": element.active
-            })
+                label: element.location,
+                y: element.active,
+            });
         });
 
-        let confirmados = new Array;
+        let confirmados = new Array();
 
-        masCasos.forEach(element => {
+        masCasos.forEach((element) => {
             confirmados.push({
-                "label": element.location,
-                "y": element.confirmed
-            })
+                label: element.location,
+                y: element.confirmed,
+            });
         });
 
-        let fallecidos = new Array;
+        let fallecidos = new Array();
 
-        masCasos.forEach(element => {
+        masCasos.forEach((element) => {
             fallecidos.push({
-                "label": element.location,
-                "y": element.deaths
-            })
+                label: element.location,
+                y: element.deaths,
+            });
         });
 
-        let recuperados = new Array;
+        let recuperados = new Array();
 
-        masCasos.forEach(element => {
+        masCasos.forEach((element) => {
             recuperados.push({
-                "label": element.location,
-                "y": element.recovered
-            })
+                label: element.location,
+                y: element.recovered,
+            });
         });
-
+        //GRAFICO MUNDIAL
         var chart = new CanvasJS.Chart("allCountryGraph", {
             animationEnabled: true,
             title: {
-                text: "Paises con COVID-19."
+                text: "Paises con COVID-19.",
             },
             axisY: {
                 title: "Casos de covid.",
                 titleFontColor: "#4F81BC",
                 lineColor: "#4F81BC",
                 labelFontColor: "#4F81BC",
-                tickColor: "#4F81BC"
+                tickColor: "#4F81BC",
             },
             toolTip: {
-                shared: true
+                shared: true,
             },
             legend: {
                 cursor: "pointer",
-                itemclick: toggleDataSeries
+                itemclick: toggleDataSeries,
             },
             data: [{
                     type: "column",
@@ -67,7 +66,7 @@ window.onload = function () {
                     legendText: "Casos activos",
                     color: "red",
                     showInLegend: true,
-                    dataPoints: activos
+                    dataPoints: activos,
                 },
                 {
                     type: "column",
@@ -75,7 +74,7 @@ window.onload = function () {
                     legendText: "Casos confirmados",
                     color: "gold",
                     showInLegend: true,
-                    dataPoints: confirmados
+                    dataPoints: confirmados,
                 },
                 {
                     type: "column",
@@ -83,7 +82,7 @@ window.onload = function () {
                     legendText: "Casos muertos",
                     color: "silver",
                     showInLegend: true,
-                    dataPoints: fallecidos
+                    dataPoints: fallecidos,
                 },
                 {
                     type: "column",
@@ -91,21 +90,23 @@ window.onload = function () {
                     legendText: "Casos recuperados",
                     color: "green",
                     showInLegend: true,
-                    dataPoints: recuperados
-                }
-            ]
+                    dataPoints: recuperados,
+                },
+            ],
         });
+        //FUNCION QUE RENDERIZA GRAFICO MUNDIAL EN HTML
         chart.render();
 
         function toggleDataSeries(e) {
-            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+            if (typeof e.dataSeries.visible === "undefined" || e.dataSeries.visible) {
                 e.dataSeries.visible = false;
             } else {
                 e.dataSeries.visible = true;
             }
             chart.render();
         }
-    }
+    };
+    //GRAFICO POR PAIS
     window.verDetalle = (pais) => {
         fetch(`http://localhost:3000/api/countries/${pais}`)
             .then((response) => {
@@ -113,7 +114,6 @@ window.onload = function () {
             })
             .then((data) => {
                 let {
-                    location,
                     confirmed,
                     deaths,
                     recovered,
@@ -121,16 +121,17 @@ window.onload = function () {
                 } = data.data;
 
                 if (data.data.hasOwnProperty("location")) {
+                    document.getElementById(
+                        "exampleModalLabel"
+                    ).textContent = `Situación actual de ${pais} por casos de COVID-19.`;
 
-
-                    document.getElementById("exampleModalLabel").textContent = `Situación actual de ${location} por casos de COVID-19.`
-
+                    //MODAL GRAFICO POR PAIS
                     var chart = new CanvasJS.Chart("countryGraph", {
                         animationEnabled: true,
                         theme: "light2", // "light1", "light2", "dark1", "dark2"
                         /* axisY: {
-                            title: "Cantidad de casos de COVID-19."
-                        }, */
+                                                    title: "Cantidad de casos de COVID-19."
+                                                }, */
                         data: [{
                             type: "column",
                             showInLegend: true,
@@ -138,39 +139,42 @@ window.onload = function () {
                             legendText: "Cantidad de casos segmentados.",
                             dataPoints: [{
                                     y: confirmed,
-                                    label: "Confirmados"
+                                    label: "Confirmados",
                                 },
                                 {
                                     y: deaths,
-                                    label: "Fallecidos"
+                                    label: "Fallecidos",
                                 },
                                 {
                                     y: recovered,
-                                    label: "Recuperados"
+                                    label: "Recuperados",
                                 },
                                 {
                                     y: active,
-                                    label: "Activos"
-                                }
-                            ]
-                        }]
+                                    label: "Activos",
+                                },
+                            ],
+                        }, ],
                     });
+                    //FUNCION QUE RENDERIZA GRAFICO POR PAIS EN HTML
                     chart.render();
-
                 } else {
-                    document.getElementById("countryGraph").innerHTML = "<h2>Información no encontrada.</h2>";
+                    document.getElementById(
+                        "exampleModalLabel"
+                    ).textContent = `Situación actual de ${pais} por casos de COVID-19.`;
+                    document.getElementById("countryGraph").innerHTML =
+                        "<h2>Información no encontrada.</h2>";
                 }
-
             })
             .catch(function (error) {
-                console.log('Hubo un problema con la petición Fetch:' + error.message);
+                console.log("Hubo un problema con la petición Fetch:" + error.message);
             });
-    }
-
+    };
+//TABLA HTML DE LOS PAISES
     const cargarTable = (data) => {
         let text = "";
         let count = 1;
-        data.forEach(pais => {
+        data.forEach((pais) => {
             text += `
                 <tr>
                 <th scope="row">${count}</th>
@@ -180,21 +184,21 @@ window.onload = function () {
                 <td>${pais.recovered}</td>
                 <td>${pais.active}</td>
                 <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#countryModal" onclick="verDetalle('${pais.location}')">Ver detalle</button></td>
-                </tr>`
-            count++
+                </tr>`;
+            count++;
         });
         document.getElementById("bodyTable").innerHTML = text;
-    }
-
-    fetch('http://localhost:3000/api/total')
+    };
+//API DEL TOTAL DE PAISES
+    fetch("http://localhost:3000/api/total")
         .then((response) => {
             return response.json();
         })
         .then((data) => {
             cargaGrafico(data.data);
-            cargarTable(data.data)
+            cargarTable(data.data);
         })
         .catch(function (error) {
-            console.log('Hubo un problema con la petición Fetch:' + error.message);
+            console.log("Hubo un problema con la petición Fetch:" + error.message);
         });
-}
+};
